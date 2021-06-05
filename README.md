@@ -44,6 +44,19 @@ import module
 ```python
 from module import MatchResult
 ```
+進行匹配
+```python
+MatchResult.get_result(patient_json, criterias)
+```
+```
+["criteria_A's match prob : 60.0 %",
+ "criteria_B's match prob : 11.11 %",
+ "criteria_C's match prob : 25.0 %",
+ "criteria_D's match prob : 33.33 %",
+ "criteria_E's match prob : 33.33 %",
+ "criteria_F's match prob : 66.67 %"]
+ ```
+
 ### - *Preparation parameters*
 - [x] patient_json 
 ```python
@@ -62,7 +75,7 @@ patient_json = {
                      'ECOG': '0'}
     }
  ```
- - [X] Clinical Trials criterias json
+ - [X] criterias (Clinical Trials criterias)
  ```python
 criterias = {
     "criteria_A":['1', 'NSCLC', [1,3], '', '18,19', '', '', '', '','', '', '','','',[18,75],'1','','','0','1','','','','','','','','','1','','','','',[4,5]],
