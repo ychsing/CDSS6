@@ -4,6 +4,7 @@
 ```
 | README.md
 | use_module.ipynb
+| criterias.json
 | module
 ├── MatchClinTrial.py
 ├── MatchResult.py
@@ -44,6 +45,12 @@ import module
 ```python
 from module import MatchResult
 ```
+load criterias
+```python
+import json
+with open('criterias.json') as f:
+    criterias = json.load(f)
+```
 進行匹配
 ```python
 MatchResult.get_result(patient_json, criterias)
@@ -75,17 +82,7 @@ patient_json = {
                      'ECOG': '0'}
     }
  ```
- - [X] criterias (Clinical Trials criterias)
- ```python
-criterias = {
-    "criteria_A":['1', 'NSCLC', [1,3], '', '18,19', '', '', '', '','', '', '','','',[18,75],'1','','','0','1','','','','','','','','','1','','','','',[4,5]],
-    "criteria_B" : ["1",'SCLC',"","IIIB,IIIC,IVA,IVB",'N','N','N',"","","","","","","",[18,75],"","","","","","","","","","","","",'1',"","","","","progressed",""],
-    "criteria_C" : ["1",'',"","IIIB,IIIC,IVA,IVB",'20','','',"","","","","","","","","","","","","0","0","","P","","","","","","","","","1","progressed",""],
-    "criteria_D" : ["1",'NSCLC',"","IIIB,IIIC,IVA,IVB",'','P','',"","","","","","","","","","","","","0","","","","","","","0","","","","","","",""],
-    "criteria_E" : ["1",'NSCLC',"","IIIA,IIIB,IIIC,IVA,IVB",'','P','',"","","","","","P","",[18,99],"","","","","","","","","","","","","","","","","","",""],
-    "criteria_F" : ["0",'NSCLC',"","",'N','N','',"","","","","","","",[18,75],"","","","","1","","","","","","","","","","","","","",""]
-}
-```
+ - [X] criterias.json (Clinical Trials criterias)
 * criteria order
 ```
 ["operation","histology","Tumor_size","stage","EGFR","ALK","ROS1","KRAS","PDL1", 
