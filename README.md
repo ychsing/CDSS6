@@ -20,20 +20,8 @@ DemoData = PLM_DemoData.loc[1][4:].tolist()
 weighted = [int(i) for i in PLM_DemoData.loc[0][4:-1].tolist()]
 DB = PLM_DemoData.iloc[2:,:]
 ```
-
-## 計算 DemoData 與 DB 資料加權後分數
 ```python
-DemoData = preprocessing(DemoData)
-match_scores = []
-for i in range(len(DB)):
-    dbpatient = DB.iloc[i,4:].tolist()
-    dbpatient = preprocessing(dbpatient)
-    score = get_score(DemoData, dbpatient,weighted)
-    match_scores.append(score)
-DB['match_scores'] = match_scores
-```
-```python
-score_sort = DB.sort_values(by=['match_scores'],ascending=False).reset_index()
+score_sort = matching_score_df(DemoData, DB, weighted)
 rec_drug, rec_sy, rec_score, candidate_patient_dict = recommends_drug(score_sort)
 print('recommends drug:{}\nscore:{}\nsurvival_y:{}'.format(rec_drug, rec_score,rec_sy))
 ```
