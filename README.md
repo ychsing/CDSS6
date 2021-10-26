@@ -25,6 +25,6 @@ score_sort = matching_score_df(DemoData, DB, weighted)
 rec_drug, rec_sy, rec_score, candidate_patient_dict = recommends_drug(score_sort)
 print('recommends drug:{}\nscore:{}\nsurvival_y:{}'.format(rec_drug, rec_score,rec_sy))
 ```
-> recommends drug : Pemetrexed,Erlotinib,Vinorelbine,Gefitinib,Docetaxel
->score : 85.18
+> recommends drug : Pemetrexed,Erlotinib,Vinorelbine,Gefitinib,Docetaxel <\br>
+>score : 85.18 <\br>
 >survival_y : >7.44 
